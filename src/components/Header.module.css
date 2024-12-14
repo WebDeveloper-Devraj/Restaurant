@@ -64,7 +64,6 @@
 
 .navigation a:hover {
   color: rgb(213, 213, 5);
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .navigation a::after {
@@ -80,6 +79,20 @@
 
 .navigation a:hover::after {
   width: 100%;
+}
+
+.navigation a.activeLink{
+  color: rgb(213, 213, 5);
+}
+
+.navigation a.activeLink::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ff6347; /* Bottom border color */
 }
 
 .search_bar {
@@ -159,9 +172,9 @@
     padding: 10px 20px;
   }
 
-  .navigation ul.active {
+  /* .navigation ul.active {
     display: flex;
-  }
+  } */
 
   .search-bar {
     display: none;

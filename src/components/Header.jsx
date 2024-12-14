@@ -3,9 +3,10 @@ import image from "../assets/logo.png";
 import styles from "./Header.module.css";
 import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
-  // to make responsive
+  // to make responsive header
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -78,10 +79,20 @@ const Header = () => {
           <nav className={styles.navigation}>
             <ul className={menuOpen && styles.active}>
               <li>
-                <a href="#home">Home</a>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) => isActive && styles.activeLink}
+                >
+                  Home
+                </NavLink>
               </li>
               <li>
-                <a href="#menu">Menu</a>
+                <NavLink
+                  to="/menu"
+                  className={({ isActive }) => isActive && styles.activeLink}
+                >
+                  Menu
+                </NavLink>
               </li>
               <li>
                 <a href="#about">About Us</a>
