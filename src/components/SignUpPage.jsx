@@ -58,7 +58,7 @@ const SignUpPage = ({ onClose, open, setOpen }) => {
               required
             />
             <button type="submit" className={styles.login}>
-              Login
+              Sign Up
             </button>
           </form>
         </div>
