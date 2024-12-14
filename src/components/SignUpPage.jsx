@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { IoClose } from "react-icons/io5";
 
-import styles from "./LoginPage.module.css";
+import styles from "./SignUpPage.module.css";
 
-const LoginPage = ({ onClose, open, setOpen }) => {
+const SignUpPage = ({ onClose, open, setOpen }) => {
   useEffect(() => {
     let timeoutId = setTimeout(() => {
       setOpen(true);
@@ -22,9 +22,17 @@ const LoginPage = ({ onClose, open, setOpen }) => {
           <IoClose />
         </div>
         <div>
-          <h2>Welcome Back!</h2>
-          <p>Login to access your account</p>
+          <h5>Sign Up to Krishna Restaurant!</h5>
+          <p>Start your journy</p>
           <form>
+            <label htmlFor="name">What's your name?</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Name"
+              required
+            />
             <label htmlFor="email">What's your e-mail?</label>
             <input
               type="email"
@@ -41,6 +49,14 @@ const LoginPage = ({ onClose, open, setOpen }) => {
               placeholder="Password"
               required
             />
+            <label htmlFor="phoneNo">Phone Number</label>
+            <input
+              type="text"
+              id="phoneNo"
+              name="phoneNo"
+              placeholder="98xxxxxxxx"
+              required
+            />
             <button type="submit" className={styles.login}>
               Login
             </button>
@@ -51,4 +67,4 @@ const LoginPage = ({ onClose, open, setOpen }) => {
   );
 };
 
-export default LoginPage;
+export default SignUpPage;

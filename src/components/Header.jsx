@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import image from "../assets/logo.png";
 import styles from "./Header.module.css";
+import LoginPage from "./LoginPage";
+import SignUpPage from "./SignUpPage";
 
 const Header = () => {
   // to make responsive
@@ -14,24 +16,45 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    let timeoutId;
-
     const handleScroll = () => {
-      if (timeoutId) clearTimeout(timeoutId);
-
-      timeoutId = setTimeout(() => {
-        // Only update state if necessary
-        setScrolled(window.scrollY > 50);
-      }, 100);
+      setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      if (timeoutId) clearTimeout(timeoutId);
     };
   }, []);
+
+  // to display login page
+  const [showLoginPage, setShowLoginPage] = useState(false);
+
+  const toggleLoginPage = () => {
+    if (open) {
+      setOpen(false);
+      setTimeout(() => {
+        setShowLoginPage(!showLoginPage);
+      }, 500);
+    } else {
+      setShowLoginPage(!showLoginPage);
+    }
+  };
+
+  const [open, setOpen] = useState(false);
+
+  // to display Sign up page
+  const [showSignUpPage, setShowSignUpPage] = useState(false);
+  const toggleSignUpPage = () => {
+    if (open) {
+      setOpen(false);
+      setTimeout(() => {
+        setShowSignUpPage(!showSignUpPage);
+      }, 500);
+    } else {
+      setShowSignUpPage(!showSignUpPage);
+    }
+  };
 
   return (
     <>
@@ -86,10 +109,37 @@ const Header = () => {
 
           {/* Action Buttons */}
           <div className={styles.action_buttons}>
-            <button className={`btn ${styles.login}`}>Login</button>
-            <button className={`btn  ${styles.signup}`}>Sign Up</button>
+            <button className={`btn ${styles.login}`} onClick={toggleLoginPage}>
+              Login
+            </button>
+            <button
+              className={`btn  ${styles.signup}`}
+              onClick={toggleSignUpPage}
+            >
+              Sign Up
+            </button>
           </div>
         </div>
+
+        {showLoginPage && (
+          <div className={styles.login_page}>
+            <LoginPage
+              onClose={toggleLoginPage}
+              open={open}
+              setOpen={setOpen}
+            />
+          </div>
+        )}
+
+        {showSignUpPage && (
+          <div className={styles.signUp_page}>
+            <SignUpPage
+              onClose={toggleSignUpPage}
+              open={open}
+              setOpen={setOpen}
+            />
+          </div>
+        )}
       </header>
     </>
   );
