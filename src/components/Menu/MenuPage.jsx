@@ -40,6 +40,7 @@ import icedCofee from "../../assets/menu dishes/beverages/icedCofee.png";
 import masalaChai from "../../assets/menu dishes/beverages/masalaChai.png";
 import peachIcedTea from "../../assets/menu dishes/beverages/peachIcedTea.png";
 import hotChocolate from "../../assets/menu dishes/beverages/hotChocolate.png";
+import { Link } from "react-router-dom";
 
 const dishes = [
   {
@@ -336,9 +337,11 @@ const MenuPage = () => {
             <button className={`${styles.cta_btn} ${styles.order_now}`}>
               Order Now
             </button>
-            <button className={`${styles.cta_btn} ${styles.view_menu}`}>
-              View Menu
-            </button>
+            <Link to="/gallery">
+              <button className={`${styles.cta_btn} ${styles.view_gallery}`}>
+                View Gallery
+              </button>
+            </Link>
           </div>
         </div>
       </section>
