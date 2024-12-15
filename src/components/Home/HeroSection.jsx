@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./HeroSection.module.css";
 import herosectionVideo from "../../assets/herosectionVideo.mp4";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -32,9 +33,11 @@ const HeroSection = () => {
             <button className={`${styles.cta_btn} ${styles.order_now}`}>
               Order Now
             </button>
-            <button className={`${styles.cta_btn} ${styles.view_menu}`}>
-              View Menu
-            </button>
+            <Link to="/menu">
+              <button className={`${styles.cta_btn} ${styles.view_menu}`}>
+                View Menu
+              </button>
+            </Link>
           </div>
         </div>
       </section>

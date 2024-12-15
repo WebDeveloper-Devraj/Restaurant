@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import dish1 from "../../assets/dish1.png";
 import dish2 from "../../assets/dish2.png";
 import dish3 from "../../assets/dish3.png";
@@ -78,9 +79,11 @@ const FeaturedDishes = () => {
         ))}
       </div>
 
-      <button className={`${styles.cta_btn} ${styles.view_menu}`}>
-        View Full Menu
-      </button>
+      <Link to="/menu">
+        <button className={`${styles.cta_btn} ${styles.view_menu}`}>
+          View Full Menu
+        </button>
+      </Link>
     </section>
   );
 };
