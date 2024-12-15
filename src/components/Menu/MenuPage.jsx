@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./MenuPage.css";
+import styles from "./MenuPage.module.css";
 import menuHero from "../../assets/menuHero.mp4";
 // starters dish images imports
 import pannerTikka from "../../assets/menu dishes/starters/paneerTikka.png";
@@ -312,11 +312,11 @@ const MenuPage = () => {
       : dishes.filter((dish) => dish.category === activeCategory);
 
   return (
-    <div className="menu-page">
+    <div className={styles.menu_page}>
       {/* Hero Section */}
-      <section className="hero_section">
+      <section className={styles.hero_section}>
         {/* Background Video */}
-        <div className="video_background">
+        <div className={styles.video_background}>
           <video autoPlay muted loop>
             <source src={`${menuHero}`} type="video/mp4" />
             {/* Your browser does not support the video tag. */}
@@ -324,28 +324,32 @@ const MenuPage = () => {
         </div>
 
         {/* Overlay for text visibility */}
-        <div className="overlay"></div>
+        <div className={styles.overlay}></div>
 
         {/* Centered Content */}
-        <div className="content">
+        <div className={styles.content}>
           <h1>Explore Our Delicious Menu</h1>
           <p>From appetizers to desserts, savor the taste of excellence!</p>
 
           {/* CTA Buttons */}
-          <div className="cta_buttons">
-            <button className="cta_btn order_now">Order Now</button>
-            <button className="cta_btn view_menu">View Menu</button>
+          <div className={styles.cta_buttons}>
+            <button className={`${styles.cta_btn} ${styles.order_now}`}>
+              Order Now
+            </button>
+            <button className={`${styles.cta_btn} ${styles.view_menu}`}>
+              View Menu
+            </button>
           </div>
         </div>
       </section>
 
       {/* Categories */}
-      <div className="menu_section">
-        <div className="categories">
+      <div className={styles.menu_section}>
+        <div className={styles.categories}>
           {categories.map((category) => (
             <button
               key={category}
-              className={activeCategory === category && "active"}
+              className={activeCategory === category && styles.active}
               onClick={() => setActiveCategory(category)}
             >
               {category}
@@ -354,16 +358,16 @@ const MenuPage = () => {
         </div>
 
         {/* Dishes div */}
-        <div className="dishes">
+        <div className={styles.dishes}>
           {filteredDishes.map((dish) => (
-            <div key={dish.id} className="dish-card">
+            <div key={dish.id} className={styles.dish_card}>
               <img src={dish.img} alt={dish.name} />
-              <div className="dish_card_body">
+              <div className={styles.dish_card_body}>
                 <h3>{dish.name}</h3>
                 <p>{dish.description}</p>
               </div>
               <span>{dish.price}</span>
-              <button className="order-btn">Order Now</button>
+              <button className={styles.order_btn}>Order Now</button>
             </div>
           ))}
         </div>

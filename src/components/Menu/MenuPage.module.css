@@ -1,5 +1,5 @@
 /* General Styles */
-.menu-page {
+.menu_page {
   font-family: 'Poppins', sans-serif;
 }
 
@@ -133,18 +133,19 @@
   gap: 30px;
 }
 
-.dish-card {
-  background: white;
+.dish_card {
+  background: rgb(16, 16, 16);
   width: 320px;
   /* border: 2px solid red; */
   border-radius: 10px;
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  color: white;
   overflow: hidden;
   text-align: center;
   padding: 15px;
 }
 
-.dish-card img {
+.dish_card img {
   width: 100%;
   height: 170px;
   object-fit: cover;
@@ -155,23 +156,23 @@
   height: 120px;
 }
 
-.dish-card h3 {
+.dish_card h3 {
   margin: 10px 0;
 
 }
 
-.dish-card p {
+.dish_card p {
   font-size: 0.95rem;
-  color: #3c3b3b;
+  /* color: #3c3b3b; */
 }
 
-.dish-card span {
+.dish_card span {
   display: block;
   font-weight: bold;
   margin: 10px 0;
 }
 
-.order-btn {
+.order_btn {
   background: #f23b1b;
   color: white;
   border: none;
@@ -180,7 +181,7 @@
   cursor: pointer;
 }
 
-.order-btn:hover {
+.order_btn:hover {
   background: #f92904;
 }
 
