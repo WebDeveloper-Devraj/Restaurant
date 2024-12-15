@@ -5,8 +5,7 @@ import { IoMail } from "react-icons/io5";
 import { FaYoutube } from "react-icons/fa";
 
 import styles from "./Footer.module.css";
-// import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 
 const Footer = () => {
   return (

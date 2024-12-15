@@ -1,61 +1,35 @@
 import React, { useEffect, useState } from "react";
-import image from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 import styles from "./Header.module.css";
-import LoginPage from "./LoginPage";
-import SignUpPage from "./SignUpPage";
-import { Link, NavLink } from "react-router-dom";
+import LoginPage from "../Login_SignUp/LoginPage";
+import SignUpPage from "../Login_SignUp/SignUpPage";
+import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { scrollActions } from "../../store/scroll";
+import { loginSignUpActions } from "../../store/loginSignUp";
 
 const Header = () => {
-  // to make responsive header
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const dispatch = useDispatch();
 
   // to change background color of header when scrolled
-  const [scrolled, setScrolled] = useState(false);
-
   useEffect(() => {
+    // adding handleScroll function to window at first time (useEffect)
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      dispatch(scrollActions.setScrolled(window.scrollY > 50));
     };
 
     window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [dispatch]);
 
-  // to display login page
-  const [showLoginPage, setShowLoginPage] = useState(false);
+  // fetching scroll status from store
+  const scrolled = useSelector((store) => store.scroll);
 
-  const toggleLoginPage = () => {
-    if (open) {
-      setOpen(false);
-      setTimeout(() => {
-        setShowLoginPage(!showLoginPage);
-      }, 500);
-    } else {
-      setShowLoginPage(!showLoginPage);
-    }
-  };
-
-  const [open, setOpen] = useState(false);
-
-  // to display Sign up page
-  const [showSignUpPage, setShowSignUpPage] = useState(false);
-  const toggleSignUpPage = () => {
-    if (open) {
-      setOpen(false);
-      setTimeout(() => {
-        setShowSignUpPage(!showSignUpPage);
-      }, 500);
-    } else {
-      setShowSignUpPage(!showSignUpPage);
-    }
-  };
+  // fetching login and signUp page status from store
+  const { showLoginPage, showSignUpPage } = useSelector(
+    (store) => store.loginSignUpUi
+  );
 
   return (
     <>
@@ -63,25 +37,24 @@ const Header = () => {
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Lora:wght@400;500;600&display=swap"
         rel="stylesheet"
       />
-      <header className={`${styles.header} ${scrolled && styles.scrolled}`}>
+      <header
+        className={`${styles.header} ${scrolled ? styles.scrolled : null}`}
+      >
         <div className={styles.header_container}>
           {/* Logo */}
           <div className={styles.logo}>
-            <img src={image} alt="Restaurant Logo" />
-          </div>
-
-          {/* Hamburger Icon */}
-          <div className={styles.hamburger} onClick={toggleMenu}>
-            <span>☰</span>
+            <img src={logo} alt="Restaurant Logo" />
           </div>
 
           {/* Navigation Menu */}
           <nav className={styles.navigation}>
-            <ul className={menuOpen && styles.active}>
+            <ul>
               <li>
                 <NavLink
                   to="/"
-                  className={({ isActive }) => isActive && styles.activeLink}
+                  className={({ isActive }) =>
+                    isActive ? styles.activeLink : null
+                  }
                 >
                   Home
                 </NavLink>
@@ -89,7 +62,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to="/menu"
-                  className={({ isActive }) => isActive && styles.activeLink}
+                  className={({ isActive }) =>
+                    isActive ? styles.activeLink : null
+                  }
                 >
                   Menu
                 </NavLink>
@@ -120,12 +95,15 @@ const Header = () => {
 
           {/* Action Buttons */}
           <div className={styles.action_buttons}>
-            <button className={`btn ${styles.login}`} onClick={toggleLoginPage}>
+            <button
+              className={`btn ${styles.login}`}
+              onClick={() => dispatch(loginSignUpActions.toggleLoginPage())}
+            >
               Login
             </button>
             <button
               className={`btn  ${styles.signup}`}
-              onClick={toggleSignUpPage}
+              onClick={() => dispatch(loginSignUpActions.toggleSignUpPage())}
             >
               Sign Up
             </button>
@@ -134,21 +112,13 @@ const Header = () => {
 
         {showLoginPage && (
           <div className={styles.login_page}>
-            <LoginPage
-              onClose={toggleLoginPage}
-              open={open}
-              setOpen={setOpen}
-            />
+            <LoginPage />
           </div>
         )}
 
         {showSignUpPage && (
           <div className={styles.signUp_page}>
-            <SignUpPage
-              onClose={toggleSignUpPage}
-              open={open}
-              setOpen={setOpen}
-            />
+            <SignUpPage />
           </div>
         )}
       </header>

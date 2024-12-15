@@ -2,23 +2,33 @@ import React, { useEffect } from "react";
 import { IoClose } from "react-icons/io5";
 
 import styles from "./LoginPage.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { loginSignUpActions } from "../../store/loginSignUp";
 
-const LoginPage = ({ onClose, open, setOpen }) => {
+const LoginPage = () => {
+  const dispatch = useDispatch();
+  const { open } = useSelector((store) => store.loginSignUpUi);
+
   useEffect(() => {
     let timeoutId = setTimeout(() => {
-      setOpen(true);
+      dispatch(loginSignUpActions.setOpen(true));
     }, 50);
 
-    return () => {
-      clearTimeout(timeoutId);
-      setOpen(false);
-    };
-  }, []);
+    return () => clearTimeout(timeoutId);
+  }, [dispatch]);
+
+  const handleClose = () => {
+    dispatch(loginSignUpActions.setOpen(false));
+
+    setTimeout(() => {
+      dispatch(loginSignUpActions.toggleLoginPage());
+    }, 320);
+  };
 
   return (
     <div className={`${styles.login_page} ${open && styles.open}`}>
       <div className={styles.login_content}>
-        <div className={styles.close_icon} onClick={onClose}>
+        <div className={styles.close_icon} onClick={handleClose}>
           <IoClose />
         </div>
         <div>
