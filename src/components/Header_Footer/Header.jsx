@@ -70,7 +70,14 @@ const Header = () => {
                 </NavLink>
               </li>
               <li>
-                <a href="#about">About Us</a>
+                <NavLink
+                  to="/about"
+                  className={({ isActive }) =>
+                    isActive ? styles.activeLink : null
+                  }
+                >
+                  About Us
+                </NavLink>
               </li>
               <li>
                 <a href="#gallery">Gallery</a>
