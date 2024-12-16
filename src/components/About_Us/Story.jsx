@@ -13,9 +13,7 @@ const Story = () => {
       </div>
 
       <div className={styles.storySection_text}>
-        <div className={styles.storyHeading}>
-          <h2>Our Story</h2>
-        </div>
+        <h2>Our Story</h2>
         <p>
           Welcome to Krishna’s restaurant, where every dish is a journey, and
           every bite tells a story.

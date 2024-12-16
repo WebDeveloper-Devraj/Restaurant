@@ -15,8 +15,6 @@ const AboutUs = () => {
       <SignatureCuisine />
       <Team />
       <Review />
-
-      {/* FAQs */}
       <Faq />
     </div>
   );
