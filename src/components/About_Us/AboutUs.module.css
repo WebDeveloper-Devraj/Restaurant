@@ -165,7 +165,7 @@
   margin: 0 auto 10px;
 }
 
-/************** Cuisine Section Styles - start*****************/
+/************** Cuisine Section Styles*****************/
 .cuisineSection {
   position: relative;
   height: auto;
@@ -237,10 +237,28 @@
   z-index: 1;
 }
 
-/* Team Section */
+/**************Team Section Styles*****************/
 .teamSection {
+  position: relative;
   padding: 40px 20px;
-  background-color: #f9f9f9;
+  background-color: #000;
+  color: #fff;
+}
+
+.teamSection::after {
+  content: "";
+  position: absolute;
+  left: 42%;
+  top: 4.7%;
+  background-color: red;
+  width: 0%;
+  height: 4px;
+  border-radius: 2px;
+  transition: width 0.7s ease;
+}
+
+.teamSection:hover::after {
+  width: 16%;
 }
 
 .teamSection h2 {
@@ -250,18 +268,22 @@
 
 .teamMembers {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 90px;
 }
 
 .teamMember {
-  text-align: center;
-  max-width: 200px;
+  display: flex;
+  border-radius: 5px;
+  gap: 20px;
+  width:600px;
+  padding: 15px;
+  height: 450px;
 }
 
 .teamMember img {
-  width: 100%;
-  border-radius: 50%;
+  height: 100%;
 }
 
 .teamMember h3 {
