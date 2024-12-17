@@ -1,28 +1,23 @@
+import { useSelector } from "react-redux";
 import styles from "./AboutUs.module.css";
+import ReviewCard from "./ReviewCard";
 
 const Review = () => {
+  const testimonials = useSelector((store) => store.testimonials);
+
   return (
-    <section className={styles.testimonialsSection}>
-      <h2>What Our Customers Say</h2>
-      <div className={styles.testimonials}>
-        <div className={styles.testimonial}>
-          <img src="" alt="Customer 1" />
-          <blockquote>
-            "The best dining experience I've ever had! The Chilli Paneer is a
-            must-try."
-          </blockquote>
-          <p>- Sarah L.</p>
+    <>
+      <section className={styles.reviewsSection}>
+        <div className={styles.reviewsDiv}>
+          <h2>Reviews</h2>
+          <div className={styles.reviews}>
+            {testimonials.map((testimonial, index) => (
+              <ReviewCard key={index} testimonial={testimonial} />
+            ))}
+          </div>
         </div>
-        <div className={styles.testimonial}>
-          <img src="" alt="Customer 2" />
-          <blockquote>
-            "A cozy atmosphere and food that feels like home. Highly
-            recommended!"
-          </blockquote>
-          <p>- James P.</p>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

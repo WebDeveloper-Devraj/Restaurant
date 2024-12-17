@@ -5,7 +5,8 @@ import Story from "./Story";
 import SignatureCuisine from "./SignatureCuisine";
 import Team from "./team";
 import Review from "./Review";
-import Faq from "./Faq";
+import ReviewForm from "./ReviewForm";
+// import Faq from "./Faq";
 
 const AboutUs = () => {
   return (
@@ -15,7 +16,8 @@ const AboutUs = () => {
       <SignatureCuisine />
       <Team />
       <Review />
-      <Faq />
+      <ReviewForm />
+      {/* <Faq /> */}
     </div>
   );
 };
