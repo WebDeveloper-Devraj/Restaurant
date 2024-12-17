@@ -18,17 +18,21 @@ const AboutUsHero = () => {
 
       {/* Centered Content */}
       <div className={styles.content}>
-        <h1>Welcome to Our Restaurant</h1>
-        <p>Where passion meets flavor, and every dish tells a story.</p>
+        <h1>Experience the Art of Culinary Excellence</h1>
+        <p>
+          "From our kitchen to your table, savor the flavors of passion,
+          tradition, and creativity. <br /> Dive into a world where every meal
+          tells a story and every bite leaves a memory."
+        </p>
 
         {/* CTA Buttons */}
         <div className={styles.cta_buttons}>
-          <button className={`${styles.cta_btn} ${styles.order_now}`}>
-            Order Now
+          <button className={`${styles.cta_btn} ${styles.book_table}`}>
+            Book Your Table
           </button>
-          <Link to="/gallery">
-            <button className={`${styles.cta_btn} ${styles.view_gallery}`}>
-              View Gallery
+          <Link to="/menu">
+            <button className={`${styles.cta_btn} ${styles.view_menu}`}>
+              View Menu
             </button>
           </Link>
         </div>
