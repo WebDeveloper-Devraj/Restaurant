@@ -7,6 +7,7 @@ import MenuPage from "./components/Menu/MenuPage";
 import { Provider } from "react-redux";
 import restaurantStore from "./store";
 import AboutUs from "./components/About_Us/AboutUs";
+import Gallery from "./components/Gallery/Gallery";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <AboutUs />,
+      },
+      {
+        path: "/gallery",
+        element: <Gallery />,
       },
     ],
   },

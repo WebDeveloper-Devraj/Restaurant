@@ -2,14 +2,12 @@ import styles from "./MenuPage.module.css";
 import menuHero from "../../assets/menuHero.mp4";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import CategoryButton from "./CategoryButton";
+import CategoryButton from "../CategoryButton";
 import DishCard from "./DishCard";
 
 const MenuPage = () => {
-  const dishes = useSelector((store) => store.dishes);
-
-  const { categories, activeCategory } = useSelector(
-    (store) => store.categories
+  const { dishes, activeCategory, categories } = useSelector(
+    (store) => store.menuCategories
   );
 
   const filteredDishes =
@@ -55,7 +53,12 @@ const MenuPage = () => {
       <div className={styles.menu_section}>
         <div className={styles.categories}>
           {categories.map((category) => (
-            <CategoryButton key={category} category={category} />
+            <CategoryButton
+              key={category}
+              category={category}
+              activeCategory={activeCategory}
+              activeSubCategory=""
+            />
           ))}
         </div>
 

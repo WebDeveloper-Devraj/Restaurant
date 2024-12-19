@@ -3,9 +3,9 @@ import scrollSlice from "./scroll";
 import loginSignUpSlice from "./loginSignUp";
 import featuredDishesSlice from "./FeaturedDishes";
 import testimonialsSlice from "./testimonials";
-import dishesSlice from "./dishes";
-import categoriesSlice from "./categories";
+import menuCategoriesSlice from "./menuCategories";
 import membersSlice from "./members";
+import galleryCategoriesSlice from "./galleryCategories";
 
 const restaurantStore = configureStore({
   reducer: {
@@ -13,9 +13,9 @@ const restaurantStore = configureStore({
     loginSignUpUi: loginSignUpSlice.reducer,
     featuredDishes: featuredDishesSlice.reducer,
     testimonials: testimonialsSlice.reducer,
-    dishes: dishesSlice.reducer,
-    categories: categoriesSlice.reducer,
+    menuCategories: menuCategoriesSlice.reducer,
     members: membersSlice.reducer,
+    galleryCategories: galleryCategoriesSlice.reducer,
   },
 });
 
