@@ -1,0 +1,126 @@
+/* Hero Section */
+.heroSection {
+  /* background: url('../../assets/contactUs/contactHero.png') no-repeat ; */
+  height: 400px;
+  position: relative;
+}
+
+.heroSection img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.heroOverlay {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.heroOverlay h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.heroOverlay p {
+  font-size: 1.2rem;
+}
+
+/* Contact Details Section */
+.contactDetailsSection {
+  padding: 40px 20px;
+  background-color: #000;
+  text-align: center;
+  color: #fff;
+}
+
+.contactDetailsSection h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.contactDetailsSection p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.contactDetails {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.contactItem {
+  flex: 1 1 30%;
+  padding: 10px;
+  text-align: center;
+}
+
+.contactItem h3 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.contactItem p {
+  font-size: 1rem;
+}
+
+/* Contact Form Section */
+.contactFormSection {
+  position: relative;
+  padding: 20px 20px 40px 20px;
+  background-color: #000;
+  color: #fff;
+}
+
+.contactFormSection h2 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.contactForm {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formGroup label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 10px;
+  background-color: #1B1A1A;
+  color: #fff;
+  outline: none;
+  border: none;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 10px 0;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #0056b3;
+}

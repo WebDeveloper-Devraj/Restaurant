@@ -89,9 +89,14 @@ const Header = () => {
                   Gallery
                 </NavLink>
               </li>
-              <li>
-                <a href="#contact">Contact Us</a>
-              </li>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? styles.activeLink : null
+                }
+              >
+                Contact Us
+              </NavLink>
             </ul>
           </nav>
 

@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import restaurantStore from "./store";
 import AboutUs from "./components/About_Us/AboutUs";
 import Gallery from "./components/Gallery/Gallery";
+import ContactUs from "./components/contact/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/gallery",
         element: <Gallery />,
+      },
+      {
+        path: "/contact",
+        element: <ContactUs />,
       },
     ],
   },
