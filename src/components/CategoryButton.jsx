@@ -14,6 +14,7 @@ const CategoryButton = ({ category, activeCategory, activeSubCategory }) => {
       onClick={() => {
         if (activeCategory != "") {
           dispatch(galleryCategoriesActions.setActiveCategory(category));
+          dispatch(menuCategoriesSliceActions.setActiveCategory(category));
         } else {
           dispatch(galleryCategoriesActions.setActiveSubCategory(category));
         }
