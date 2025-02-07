@@ -316,5 +316,5 @@ const menuCategoriesSlice = createSlice({
   },
 });
 
-export const menuCategoriesSliceActions = menuCategoriesSlice.actions;
+export const menuCategoriesActions = menuCategoriesSlice.actions;
 export default menuCategoriesSlice;

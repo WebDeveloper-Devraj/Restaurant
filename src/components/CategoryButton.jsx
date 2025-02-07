@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { menuCategoriesSliceActions } from "../store/menuCategories";
+import { menuCategoriesActions } from "../store/menuCategories";
 import styles from "./CategoryButton.module.css";
 import { galleryCategoriesActions } from "../store/galleryCategories";
 
@@ -14,7 +14,7 @@ const CategoryButton = ({ category, activeCategory, activeSubCategory }) => {
       onClick={() => {
         if (activeCategory != "") {
           dispatch(galleryCategoriesActions.setActiveCategory(category));
-          dispatch(menuCategoriesSliceActions.setActiveCategory(category));
+          dispatch(menuCategoriesActions.setActiveCategory(category));
         } else {
           dispatch(galleryCategoriesActions.setActiveSubCategory(category));
         }

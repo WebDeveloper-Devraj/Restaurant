@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import styles from "./FeaturedDishes.module.css";
 
 const FeaturedDishCard = ({ dish }) => {
   return (
-    <div className={`card ${styles.dish_card}`}>
+    <Link to={`/dish/${dish.id}`} className={`card ${styles.dish_card}`}>
       <img src={dish.img} className="card-img-top" alt={dish.name} />
       <div className="card-body">
         <h3 className="card-title">{dish.name}</h3>
@@ -19,7 +20,7 @@ const FeaturedDishCard = ({ dish }) => {
           </a>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 export default FeaturedDishCard;

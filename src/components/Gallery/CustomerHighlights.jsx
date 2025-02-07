@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import styles from "./Gallery.module.css";
+import CustomerPhoto from "./CustomerPhoto";
 
 const CustomerHighlights = () => {
   const { galleryImages: images } = useSelector(
@@ -13,9 +14,7 @@ const CustomerHighlights = () => {
       <div className={styles.customerGallery}>
         {/* Placeholder for customer images */}
         {images.map((image, index) => (
-          <div key={index} className={styles.customerItem}>
-            <img src={image.img} alt={`Customer ${index + 1}`} />
-          </div>
+          <CustomerPhoto key={index} image={image} />
         ))}
       </div>
     </section>

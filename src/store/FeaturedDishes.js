@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { v4 as uuidv4 } from "uuid";
 import dish1 from "../assets/featured dishes/dish1.png";
 import dish2 from "../assets/featured dishes/dish2.png";
 import dish3 from "../assets/featured dishes/dish3.png";
@@ -9,6 +9,7 @@ import dish6 from "../assets/featured dishes/dish6.png";
 
 const initialState = [
   {
+    id: uuidv4(),
     name: "Chilli Chicken",
     description:
       "Spicy and tangy chicken stir-fried with peppers, onions, and a flavorful soy-based sauce.",
@@ -16,12 +17,14 @@ const initialState = [
     img: dish1,
   },
   {
+    id: uuidv4(),
     name: "Grilled Chicken Salad",
     description: "Fresh greens with perfectly grilled chicken.",
     price: "$17",
     img: dish2,
   },
   {
+    id: uuidv4(),
     name: "Prawn Fried Rice",
     description:
       "Long-grain rice stir-fried with juicy prawns, eggs, and veggies, seasoned with soy sauce.",
