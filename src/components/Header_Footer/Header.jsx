@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { scrollActions } from "../../store/scroll";
 import { loginSignUpActions } from "../../store/loginSignUp";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -89,14 +90,30 @@ const Header = () => {
                   Gallery
                 </NavLink>
               </li>
-              <NavLink
-                to="/contact"
-                className={({ isActive }) =>
-                  isActive ? styles.activeLink : null
-                }
-              >
-                Contact Us
-              </NavLink>
+              <li>
+                <NavLink
+                  to="/contact"
+                  className={({ isActive }) =>
+                    isActive ? styles.activeLink : null
+                  }
+                >
+                  Contact Us
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/cart"
+                  className={({ isActive }) =>
+                    isActive ? styles.activeLink : null
+                  }
+                >
+                  <FaShoppingCart
+                    className={styles.cartIcon}
+                    size={22}
+                    color="white"
+                  />
+                </NavLink>
+              </li>
             </ul>
           </nav>
 

@@ -7,9 +7,13 @@ import { Outlet } from "react-router-dom";
 function App() {
   return (
     <>
-      <Header />
-      <Outlet />
-      <Footer />
+      <div className="app-container">
+        <Header />
+        <div className="content">
+          <Outlet />
+        </div>
+        <Footer />
+      </div>
     </>
   );
 }

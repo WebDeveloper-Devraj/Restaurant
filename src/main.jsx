@@ -9,6 +9,8 @@ import restaurantStore from "./store";
 import AboutUs from "./components/About_Us/AboutUs";
 import Gallery from "./components/Gallery/Gallery";
 import ContactUs from "./components/contact/ContactUs";
+import DishDetailPage from "./components/DishDetailPage/DishDetailPage";
+import CartPage from "./components/CartPage/CartPage";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
       {
         path: "/menu",
         element: <MenuPage />,
+      },
+      {
+        path: "/dish/:id",
+        element: <DishDetailPage />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
       },
       {
         path: "/about",

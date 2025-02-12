@@ -6,6 +6,7 @@ import testimonialsSlice from "./testimonials";
 import menuCategoriesSlice from "./menuCategories";
 import membersSlice from "./members";
 import galleryCategoriesSlice from "./galleryCategories";
+import cartSlice from "./cart";
 
 const restaurantStore = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const restaurantStore = configureStore({
     menuCategories: menuCategoriesSlice.reducer,
     members: membersSlice.reducer,
     galleryCategories: galleryCategoriesSlice.reducer,
+    cart: cartSlice.reducer,
   },
 });
 
